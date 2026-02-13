@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skyline Vogue</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#000;
+color:#fff;
+}
+
+header{
+background:#111;
+padding:20px;
+text-align:center;
+border-bottom:2px solid gold;
+}
+
+.logo{
+font-size:28px;
+color:gold;
+font-weight:bold;
+letter-spacing:3px;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+}
+
+nav a:hover{
+color:gold;
+}
+
+section{
+padding:60px 20px;
+text-align:center;
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.product{
+background:#111;
+padding:20px;
+width:250px;
+border:1px solid gold;
+}
+
+.product img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+select, button{
+padding:8px;
+margin-top:10px;
+}
+
+button{
+background:gold;
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:white;
+}
+
+#cart{
+position:fixed;
+right:0;
+top:0;
+width:300px;
+height:100%;
+background:#111;
+border-left:2px solid gold;
+padding:20px;
+overflow:auto;
+}
+
+footer{
+background:#111;
+padding:20px;
+border-top:2px solid gold;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">SKYLINE VOGUE</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section id="home">
+<h2>Elevate Your Style. Own The Skyline.</h2>
+<p>Luxury Streetwear for Bold Individuals</p>
+</section>
+
+<section id="shop">
+<h2>Shop Collection</h2>
+
+<div class="products">
+
+<div class="product">
+<img src="https://via.placeholder.com/250x250">
+<h3>Signature Tee</h3>
+<p>₦18000</p>
+<select id="size1">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+<br>
+<button onclick="addToCart('Signature Tee',18000,'size1')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/250x250">
+<h3>Luxury Hoodie</h3>
+<p>₦35000</p>
+<select id="size2">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+<br>
+<button onclick="addToCart('Luxury Hoodie',35000,'size2')">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<div id="cart">
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<h4>Total: ₦<span id="total">0</span></h4>
+<button onclick="payWithPaystack()">Checkout</button>
+</div>
+
+<section id="contact">
+<h2>Contact Us</h2>
+<p>Email: skylinevogue@email.com</p>
+<p>Instagram: @skylinevogue</p>
+</section>
+
+<footer>
+© 2026 Skyline Vogue | All Rights Reserved
+</footer>
+
+<script>
+let cart=[];
+let total=0;
+
+function addToCart(name,price,sizeId){
+let size=document.getElementById(sizeId).value;
+cart.push({name,price,size});
+total+=price;
+displayCart();
+}
+
+function displayCart(){
+let cartItems=document.getElementById("cartItems");
+cartItems.innerHTML="";
+cart.forEach(item=>{
+cartItems.innerHTML+=`
+<p>${item.name} (${item.size}) - ₦${item.price}</p>
+`;
+});
+document.getElementById("total").innerText=total;
+}
+
+function payWithPaystack(){
+var handler = PaystackPop.setup({
+key: "YOUR_PAYSTACK_PUBLIC_KEY",
+email: "customer@email.com",
+amount: total * 100,
+currency: "NGN",
+callback: function(response){
+alert("Payment successful! Reference: " + response.reference);
+},
+onClose: function(){
+alert("Transaction cancelled");
+}
+});
+handler.openIframe();
+}
+</script>
+
+</body>
+	1.	</html>

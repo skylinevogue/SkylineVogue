@@ -90,6 +90,7 @@ background:#111;
 border-left:2px solid gold;
 padding:20px;
 overflow:auto;
+z-index:1000;
 }
 
 footer{
@@ -98,7 +99,9 @@ padding:20px;
 border-top:2px solid gold;
 text-align:center;
 @media (max-width: 768px){
-
+body{
+	display: block;
+}
 #cart{
 position: relative !important;
 width: 100% !important;
@@ -107,6 +110,7 @@ right: auto !important;
 top: auto !important;
 border-left: none !important;
 border-top: 2px solid gold;
+margin-top: 20px;
 }
 
 .products{

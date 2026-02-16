@@ -119,11 +119,16 @@ margin-right: 0 !important;
 <header>
 <div class="logo">SKYLINE VOGUE</div>
 <nav>
-<a href="#home">Home</a>
-<a href="#shop">Shop</a>
-<a href="#contact">Contact</a>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="contact.html">Contact</a>
 </nav>
 </header>
+	<section class="hero">
+<h2>Elevate Your Style</h2>
+<p>Luxury Streetwear for the Bold & Fearless</p>
+<a href="shop.html" class="hero-btn">Shop Now</a>
+</section>
 
 <section id="home">
 <h2>Elevate Your Style. Own The Skyline.</h2>
@@ -224,3 +229,34 @@ handler.openIframe();
 
 </body>
 	1.	</html>
+.hero{
+background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1520975918318-7c2f2b7b3a3c');
+background-size:cover;
+background-position:center;
+text-align:center;
+padding:100px 20px;
+color:gold;
+}
+
+.hero h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:30px;
+}
+
+.hero-btn{
+background:gold;
+color:black;
+padding:12px 25px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero-btn:hover{
+background:#c9a000;
+}

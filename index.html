@@ -118,17 +118,7 @@ margin-right: 0 !important;
 </head>
 
 <body>
-<!-- Welcome Floating Banner -->
-<div id="welcomeBanner" class="welcome-banner">
-<div class="welcome-content">
-<span class="close-btn" onclick="closeBanner()">×</span>
-<h3>Welcome to Skyline Vogue</h3>
-<p>
-CEO Victor Kay (Skyline) / Yinka (Skyline) is pleased to have you.
-Navigate and have fun while shopping 😎
-</p>
-</div>
-</div>
+
 <header>
 <div class="logo">SKYLINE VOGUE</div>
 <nav>
@@ -260,18 +250,42 @@ target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
 <script>
-window.onload = function() {
-document.getElementById("welcomeBanner").classList.add("show");
+<a href="https://wa.me/2349072571958"
+class="whatsapp-float"
+target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
 
-// Auto close after 8 seconds
-setTimeout(function() {
-closeBanner();
-}, 8000);
-};
+<!-- Welcome Popup -->
+<div id="welcomePopup" class="popup">
+<div class="popup-content">
+<h2>Welcome to Skyline Vogue</h2>
+<p>
+CEO Victor Kay (Skyline) / Yinka (Skyline) is pleased to have you.
+Navigate and have fun while shopping 😎
+</p>
+</div>
+</div>
 
-function closeBanner() {
-document.getElementById("welcomeBanner").style.top = "-100%";
+<script>
+window.onload = function () {
+
+if (!localStorage.getItem("welcomeShown")) {
+
+const popup = document.getElementById("welcomePopup");
+popup.style.display = "flex";
+
+setTimeout(function () {
+popup.style.display = "none";
+}, 10000);// 10seconds 
+
+localStorage.setItem("welcomeShown", "true");
 }
+};
+</script>
+
+</body>
+</html>
 </script>	
 </body>
 	</html>

@@ -45,3 +45,44 @@ line-height: 60px;
 z-index: 99999;
 box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+.contact {
+text-align: center;
+padding: 50px 20px;
+}
+
+.contact h2 {
+margin-bottom: 30px;
+font-size: 28px;
+}
+
+.btn {
+display: block;
+width: 250px;
+margin: 15px auto;
+padding: 12px;
+text-decoration: none;
+color: white;
+font-weight: bold;
+border-radius: 8px;
+transition: 0.3s ease;
+}
+
+.email-btn {
+background: #444;
+}
+
+.tiktok-btn {
+background: #000;
+}
+
+.whatsapp-btn {
+background: #25D366;
+}
+
+.call-btn {
+background: #007bff;
+}
+
+.btn:hover {
+transform: scale(1.05);
+}

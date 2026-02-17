@@ -259,5 +259,19 @@ class="whatsapp-float"
 target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
+<script>
+window.onload = function() {
+document.getElementById("welcomeBanner").classList.add("show");
+
+// Auto close after 8 seconds
+setTimeout(function() {
+closeBanner();
+}, 8000);
+};
+
+function closeBanner() {
+document.getElementById("welcomeBanner").style.top = "-100%";
+}
+</script>	
 </body>
 	</html>

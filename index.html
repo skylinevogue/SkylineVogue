@@ -116,9 +116,23 @@ margin-right: 0 !important;
 }
 </style>
 </head>
+<script>
+window.addEventListener("load", function() {
+document.getElementById("welcomeBanner").classList.add("show");
+});
 
+function closeBanner() {
+document.getElementById("welcomeBanner").classList.remove("show");
+}
+</script>
 <body>
-
+<div class="welcome-banner" id="welcomeBanner">
+<div class="popup-content">
+<h2>Welcome to Skyline Vogue</h2>
+<p>Luxury Streetwear for the Bold & Fearless</p>
+<button onclick="closeBanner()">Enter</button>
+</div>
+</div>
 <header>
 <div class="logo">SKYLINE VOGUE</div>
 <nav>

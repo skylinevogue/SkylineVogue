@@ -204,12 +204,14 @@ display:flex;
 flex-wrap:wrap;
 gap:40px;
 padding:40px;
-color:white;
 }
 
-.product-details img{
-width:100%;
+.image-gallery{
 max-width:400px;
+}
+
+.main-image{
+width:100%;
 }
 
 .details{
@@ -219,5 +221,4 @@ max-width:500px;
 .price{
 color:gold;
 font-size:22px;
-margin:10px 0;
 }

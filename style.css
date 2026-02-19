@@ -222,3 +222,13 @@ max-width:500px;
 color:gold;
 font-size:22px;
 }
+.product-images {
+display: flex;
+gap: 20px;
+}
+
+.product-images img {
+width: 250px;
+height: auto;
+border-radius: 8px;
+}

@@ -26,7 +26,7 @@
 
 <div class="details">
 <h2>Tracksuit</h2>
-<p class="price">₦60,000</p>
+<h2 id="price" data-price="60000">₦60,000</h2>
 
 <p>
 Premium luxury tracksuit made with high quality cotton blend.
@@ -35,10 +35,29 @@ Designed for bold and confident individuals.
 
 <p><strong>Available Sizes:</strong> S, M, L, XL</p>
 
-<button>Add to Cart</button>
+<button onclick="payWithPaystack()">Checkout</button>
 </div>
 
 </section>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
+<script>
+function payWithPaystack(){
+
+var price = document.getElementById("price").dataset.price;
+
+var handler = PaystackPop.setup({
+key: 'pk_live_784c7a25820d77a2601eb73e0989efb382bdec4d',
+email: 'customer@email.com',
+amount: price * 100,
+currency: 'NGN',
+callback: function(response){
+alert('Payment successful!');
+}
+});
+
+handler.openIframe();
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>skylinejeans</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<script src="cart.js"></script>
+<body>
+
+<header>
+<h1>Skyline Vogue</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="product">
+<img src="skylinejeans.JPG">
+<h3>Skyline Jeans</h3>
+<p>₦45,000</p>
+<select id="size2">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+<br>
+<button onclick="addToCart('skyline Jeans',45000)">Add to Cart</button>
+</div>
+
+<p>
+Premium luxury skylinejeans made with high quality cotton blend.
+Designed for bold and confident individuals.
+</p>
+
+<p><strong>Available Sizes:</strong> S, M, L, XL</p>
+
+<button onclick="payWithPaystack()">Checkout</button>
+</div>
+
+</section>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+function payWithPaystack(){
+
+var price = document.getElementById("price").dataset.price;
+
+var handler = PaystackPop.setup({
+key: 'pk_live_784c7a25820d77a2601eb73e0989efb382bdec4d',
+email: 'customer@email.com',
+amount: price * 100,
+currency: 'NGN',
+callback: function(response){
+alert('Payment successful!');
+}
+});
+
+handler.openIframe();
+}
+</script>
+</body>
+</html>

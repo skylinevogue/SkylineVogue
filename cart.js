@@ -8,13 +8,22 @@ displayCart();
 }
 
 function displayCart() {
-const cartDiv = document.getElementById("cart");
-cartDiv.innerHTML = "<h2>Cart</h2>";
+
+const cartItemsDiv = document.getElementById("cartItems");
+let total = 0;
+
+cartItemsDiv.innerHTML = "";
 
 cart.forEach(item => {
-cartDiv.innerHTML += "<p>" + item.name + " - ₦" + item.price + "</p>";
+cartItemsDiv.innerHTML +=
+"<p>" + item.name + " - ₦" + item.price.toLocaleString() + "</p>";
+
+total += item.price;
 });
+
+document.getElementById("total").innerText = total.toLocaleString();
 }
+
 function payWithPaystack() {
 
 var totalAmount = document.getElementById("total").innerText;

@@ -1,4 +1,5 @@
 let cart = [];
+let total= 0; 
 
 function addToCart(name, price) {
 cart.push({ name, price });
@@ -8,17 +9,17 @@ displayCart();
 }
 
 function displayCart() {
-
 const cartItemsDiv = document.getElementById("cartItems");
-let total = 0;
-
+const cartItemsDiv = document.getElementById("cartTotal");
+  
+let total = 0;  //reset total
 cartItemsDiv.innerHTML = "";
 
 cart.forEach(item => {
 cartItemsDiv.innerHTML +=
 "<p>" + item.name + " - ₦" + item.price.toLocaleString() + "</p>";
 
-total += item.price;
+total += (item.price);
 });
 
 document.getElementById("cartTotal").innerText =

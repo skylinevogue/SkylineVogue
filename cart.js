@@ -26,8 +26,8 @@ document.getElementById("cartTotal").innerText =
 }
 
 function payWithPaystack() {
-
-var totalAmount = document.getElementById("total").innerText;
+var totalText = document.getElementById("cartTotal").innerText;
+var totalAmount = totalText.replace("Total: ₦", "").replace(/,/g, "");
 
 if (totalAmount == 0) {
 alert("Your cart is empty!");

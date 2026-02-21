@@ -344,10 +344,16 @@ document.getElementById("total").innerText=total;
 }
 
 function payWithPaystack(){
+var finalAmount = parseInt(
+document.getElementById("total").innerText.replace(/[^0-9]/g, ""));
+if (!finalAmount || finalAmount <= 0) {
+     alert("Your cart is empty!");
+     return;
+  }
 var handler = PaystackPop.setup({
 key: "pk_live_784c7a25820d77a2601eb73e0989efb382bdec4d",
 email: "customer@email.com",
-amount: total * 100,
+amount: finalAmount * 100,
 currency: "NGN",
 callback: function(response){
 alert("Payment successful! Reference: " + response.reference);

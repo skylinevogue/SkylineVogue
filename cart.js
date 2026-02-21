@@ -21,7 +21,8 @@ cartItemsDiv.innerHTML +=
 total += item.price;
 });
 
-document.getElementById("total").innerText = total.toLocaleString();
+document.getElementById("cartTotal").innerText =
+"Total: ₦" + total.toLocaleString();
 }
 
 function payWithPaystack() {

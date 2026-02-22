@@ -320,50 +320,6 @@ document.getElementById("welcomeBanner").classList.remove("show");
 © 2026 Skyline Vogue | All Rights Reserved
 </footer>
 	
-let cart=[];
-let total=0;
-<script>
-
-
-function addToCart(name,price,sizeId){
-let size=document.getElementById(sizeId).value;
-cart.push({name,price,size});
-total+=price;
-displayCart();
-}
-
-function displayCart(){
-let cartItems=document.getElementById("cartItems");
-cartItems.innerHTML="";
-cart.forEach(item=>{
-cartItems.innerHTML+=`
-<p>${item.name} (${item.size}) - ₦${item.price}</p>
-`;
-});
-document.getElementById("total").innerText=total;
-}
-
-function payWithPaystack(){
-var finalAmount = parseInt(
-document.getElementById("total").innerText.replace(/[^0-9]/g, ""));
-if (!finalAmount || finalAmount <= 0) {
-     alert("Your cart is empty!");
-     return;
-  }
-var handler = PaystackPop.setup({
-key: "pk_live_784c7a25820d77a2601eb73e0989efb382bdec4d",
-email: "customer@email.com",
-amount: finalAmount * 100,
-currency: "NGN",
-callback: function(response){
-alert("Payment successful! Reference: " + response.reference);
-},
-onClose: function(){
-alert("Transaction cancelled");
-}
-});
-handler.openIframe();
-}
 </script>
 <a href="https://wa.me/2349072571958"
 class="whatsapp-float"

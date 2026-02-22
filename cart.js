@@ -10,20 +10,19 @@ displayCart();
 
 function displayCart() {
 const cartItemsDiv = document.getElementById("cartItems");
-const cartItemsDiv = document.getElementById("cartTotal");
-  
-let total = 0;  //reset total
+const cartTotalDiv = document.getElementById("cartTotal");
+
+let total = 0;  
 cartItemsDiv.innerHTML = "";
 
 cart.forEach(item => {
 cartItemsDiv.innerHTML +=
-"<p>" + item.name + " - ₦" + item.price.toLocaleString() + "</p>";
+"<p>" + item.name + " - ₦" + Number(item.price).tolocalestring()+ "</p>";
 
-total += (item.price);
+total += Number(item.price);
 });
 
-document.getElementById("cartTotal").innerText =
-"Total: ₦" + total.toLocaleString();
+cartTotalDiv.innerText = "Total: ₦" + total.toLocaleString();
 }
 
 function payWithPaystack() {

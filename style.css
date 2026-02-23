@@ -232,3 +232,16 @@ width: 250px;
 height: auto;
 border-radius: 8px;
 }
+
+/* SHOP PRODUCT GRID */
+.products {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 15px;
+padding: 15px;
+}
+
+.product img {
+width: 100%;
+height: auto;
+}
